@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4gmWIV6ty8ASbxZFcH0ryK8egUQkwBVRV4b9ES0yBsw=",
+  "Source": "MicroproyectoBackend.ApiRest",
+  "BasePath": "_content/MicroproyectoBackend.ApiRest",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

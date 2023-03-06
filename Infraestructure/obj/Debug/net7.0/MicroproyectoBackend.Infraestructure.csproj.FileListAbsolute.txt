@@ -1,0 +1,12 @@
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\bin\Debug\net7.0\MicroproyectoBackend.Infraestructure.deps.json
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\bin\Debug\net7.0\MicroproyectoBackend.Infraestructure.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\bin\Debug\net7.0\MicroproyectoBackend.Infraestructure.pdb
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.csproj.AssemblyReference.cache
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.AssemblyInfoInputs.cache
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.AssemblyInfo.cs
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\refint\MicroproyectoBackend.Infraestructure.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\MicroproyectoBackend.Infraestructure.pdb
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Infraestructure\obj\Debug\net7.0\ref\MicroproyectoBackend.Infraestructure.dll
