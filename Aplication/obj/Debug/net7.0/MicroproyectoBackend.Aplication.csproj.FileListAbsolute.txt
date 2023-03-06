@@ -1,0 +1,15 @@
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\bin\Debug\net7.0\MicroproyectoBackend.Aplication.deps.json
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\bin\Debug\net7.0\MicroproyectoBackend.Aplication.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\bin\Debug\net7.0\MicroproyectoBackend.Aplication.pdb
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\bin\Debug\net7.0\MicroproyectoBackend.Infraestructure.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\bin\Debug\net7.0\MicroproyectoBackend.Infraestructure.pdb
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.csproj.AssemblyReference.cache
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.AssemblyInfoInputs.cache
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.AssemblyInfo.cs
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.csproj.CoreCompileInputs.cache
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.csproj.CopyComplete
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\refint\MicroproyectoBackend.Aplication.dll
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\MicroproyectoBackend.Aplication.pdb
+C:\Users\developper\Desktop\MicroproyectoBackend\MicroproyectoBackend\Aplication\obj\Debug\net7.0\ref\MicroproyectoBackend.Aplication.dll
