@@ -10,8 +10,16 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
         private UsersDbContext _userDbContext;
         public async Task<Unit> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var user = await _userDbContext.Users.FirstAsync(x => x.Id == request.Id); 
+            
+            if (user == null)
+            {
+                //throw NotFoundException();
+            }
+            
+            _userDbContext.Users.Remove(user);
 
+            return Unit.Value;
         }
     }
 }
