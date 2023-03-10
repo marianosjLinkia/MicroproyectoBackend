@@ -1,12 +1,8 @@
 using MediatR;
+using MicroproyectoBackend.ApiRest.Request;
 using MicroproyectoBackend.Aplication.Commands;
 using MicroproyectoBackend.Infraestructure.Entities;
-using MicroproyectoBackend.Infraestructure.Enums;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace MicroproyectoBackend.ApiRest.Controllers
 {
@@ -17,7 +13,6 @@ namespace MicroproyectoBackend.ApiRest.Controllers
 
         private readonly ILogger<UsersController> _logger;
         private readonly IMediator _mediator;
-        //private readonly IJwtAuthManager _jwtAuthManager;
 
         public LoginController(ILogger<UsersController> logger, IMediator mediator)
         {
@@ -27,29 +22,22 @@ namespace MicroproyectoBackend.ApiRest.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<List<User>>> Login()
-        {
-            //if (login.Usuario == "usuario" && login.Password == "password")
-            
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("tu_clave_secreta"));
-                var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+        public async Task<ActionResult<List<User>>> Login([FromBody] LoginRequest loginRequest)
+        {            
+            var command = new LoginCommand()
+            { 
+                Email = loginRequest.Email,
+                Password = loginRequest.Password
+            };
 
-                var tokenOptions = new JwtSecurityToken(
-                    issuer: "tu_issuer",
-                    audience: "tu_audience",
-                    claims: new List<Claim>(),
-                    expires: DateTime.Now.AddMinutes(30),
-                    signingCredentials: signingCredentials
-                );
+            var tokenString = await _mediator.Send(command);
 
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                return Ok(new { Token = tokenString });
-                //    var command = new LoginCommand();
-                //return new UnauthorizedResult();
-                //var response = await _mediator.Send(command);
-                //return Ok(response);
+            if (tokenString == null)
+            {
+                new UnauthorizedResult();
+            }
 
-            //}
+            return  Ok(new { Token = tokenString });
         }
     }
 }
