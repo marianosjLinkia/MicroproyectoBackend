@@ -1,4 +1,0 @@
-﻿//namespace MicroproyectoBackend.ApiRest.Controllers
-//{
-    
-//}

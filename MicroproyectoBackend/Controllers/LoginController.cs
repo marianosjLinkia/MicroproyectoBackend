@@ -34,7 +34,7 @@ namespace MicroproyectoBackend.ApiRest.Controllers
 
             if (tokenString == null)
             {
-                new UnauthorizedResult();
+                return new UnauthorizedResult();
             }
 
             return  Ok(new { Token = tokenString });

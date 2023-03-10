@@ -11,8 +11,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -28,16 +26,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             };
         });
 
-// Otros servicios
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("admin"));
+});
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mi API", Version = "v1" });
 
-    // Agregar el esquema Bearer
     var securityScheme = new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -66,7 +66,6 @@ builder.Services.AddMediatR(typeof(AddUserCommand));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -86,13 +85,3 @@ app.UseEndpoints(endpoints =>
 app.MapControllers();
 
 app.Run();
-
- //app.UseRouting();
-
- //   // Add the authorization middleware here.
- //   app.UseAuthorization();
-
- //   app.UseEndpoints(endpoints =>
- //   {
- //       endpoints.MapControllers();
- //   });

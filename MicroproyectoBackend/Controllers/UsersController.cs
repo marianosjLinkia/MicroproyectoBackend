@@ -11,7 +11,7 @@ namespace MicroproyectoBackend.ApiRest.Controllers
     
     [Route("api/users")]
     [ApiController]
-    [Authorize]
+    [Authorize (Policy = "AdminOnly")]
     public class UsersController : ControllerBase
     {       
 
