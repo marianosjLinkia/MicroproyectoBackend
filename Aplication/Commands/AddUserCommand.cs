@@ -5,7 +5,12 @@ namespace MicroproyectoBackend.Aplication.Commands
 {
     public class AddUserCommand : IRequest
     {
-        public string Name;
-        public UserType UserType;
+        public string Username;
+        public string Fullname;
+        public byte[] Pass;
+        public DateTime StartDate;
+        public DateTime EndDate;
+        public bool IsAdmin;
+
     }
 }

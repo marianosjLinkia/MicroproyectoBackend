@@ -7,9 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
@@ -56,7 +57,7 @@ builder.Services.AddSwaggerGen(c =>
     };
 
     c.AddSecurityRequirement(securityRequirement);
-}); var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+}); var connectionString = "Server = tcp:linkiam12.database.windows.net,1433; Initial Catalog = ACT02; Persist Security Info=False; User ID = azureadmin; Password = rumae@12; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30; Application Name = myApp;";
 builder.Services.AddDbContext<UsersDbContext>(opciones =>
          opciones.UseSqlServer(connectionString));
 builder.Services.AddMediatR(typeof(GetUserCommand));
@@ -64,7 +65,7 @@ builder.Services.AddMediatR(typeof(GetUsersCommand));
 builder.Services.AddMediatR(typeof(DeleteUserCommand));
 builder.Services.AddMediatR(typeof(AddUserCommand));
 
-var app = builder.Build();
+        var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -72,7 +73,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 
 app.UseRouting();
 app.UseAuthentication();
@@ -84,4 +85,6 @@ app.UseEndpoints(endpoints =>
 });
 app.MapControllers();
 
-app.Run();
+        app.Run();
+    }
+}

@@ -3,7 +3,7 @@ using MicroproyectoBackend.Infraestructure.Entities;
 
 namespace MicroproyectoBackend.Aplication.Commands
 {
-    public class GetUsersCommand : IRequest<List<User>>
+    public class GetUsersCommand : IRequest<List<Users>>
     {
     }
 }
