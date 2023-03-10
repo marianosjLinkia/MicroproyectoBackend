@@ -13,13 +13,17 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
         private UsersDbContext _userDbContext;
         public async Task<Unit> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
-            var user = new User()
+            var user = new Users()
             {
-                Name = request.Name,
-                UserType = request.UserType
+                Username = request.Username,
+                Pass = request.Pass,
+                Fullname = request.Fullname,
+                StartDate= request.StartDate,
+                EndDate= request.EndDate,
+                IsAdmin= request.IsAdmin,
             };
 
-            _userDbContext.User.Add(user);
+            _userDbContext.Users.Add(user);
             _userDbContext.SaveChanges();
             return Unit.Value;
         }

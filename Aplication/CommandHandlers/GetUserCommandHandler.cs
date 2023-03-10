@@ -8,16 +8,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MicroproyectoBackend.Aplication.CommandHandlers
 {
-    public class GetUserCommandHandler : IRequestHandler<GetUserCommand, User>
+    public class GetUserCommandHandler : IRequestHandler<GetUserCommand, Users>
     {
         private UsersDbContext _userDbContext;
-        public async Task<User> Handle(GetUserCommand request, CancellationToken cancellationToken)
+
+        public GetUserCommandHandler(UsersDbContext userDbContext)
         {
-            var user = await _userDbContext.User.FirstAsync(x => x.Id == request.UserId);
+            _userDbContext = userDbContext;
+        }
+
+        public async Task<Users> Handle(GetUserCommand request, CancellationToken cancellationToken)
+        {
+            var user = await _userDbContext.Users.FirstAsync(x => x.Id == request.Id);
 
             if (user == null)
             {
-                //throw NotFoundException();
             }
 
             return user;

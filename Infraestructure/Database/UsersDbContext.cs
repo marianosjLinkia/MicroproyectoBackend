@@ -9,6 +9,6 @@ namespace MicroproyectoBackend.Infraestructure.Database
         {
            
         }
-        public DbSet<User> User { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }

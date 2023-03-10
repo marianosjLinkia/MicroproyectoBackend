@@ -20,9 +20,17 @@ namespace MicroproyectoBackend.ApiRest.Controllers
             _mediator = mediator;
         }
 
+        [HttpPost]
+        [Route("user/addUser")]
+        public async Task<ActionResult> AddUser([FromBody] AddUserCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return Ok(response);
+        }
+
         [HttpGet]
         [Route("user")]
-        public async Task<ActionResult<List<User>>> GetUsers()
+        public async Task<ActionResult<List<Users>>> GetUsers()
         {            
             var command = new GetUsersCommand();
             var response = await _mediator.Send(command);
@@ -31,20 +39,18 @@ namespace MicroproyectoBackend.ApiRest.Controllers
 
         [HttpGet]
         [Route("user/{userId}")]
-        public async Task<ActionResult<User>> GetUserById([FromRoute] string userId)
+        public async Task<ActionResult<Users>> GetUserById([FromRoute] int userId)
         {
-            var command = new GetUserCommand();
+            var command = new GetUserCommand { Id = userId};
             var response = await _mediator.Send(command);
             return Ok(response);
         }
 
         [HttpDelete]
         [Route("user/{userId}")]
-        public async Task<ActionResult> DeleteUser([FromRoute] string userId)
+        public async Task<ActionResult> DeleteUser([FromRoute] int userId)
         {
-            var command = new DeleteUserCommand();
-            await _mediator.Send(command);
-            return Ok();
+            throw new NotImplementedException();
         }
     }
 }
