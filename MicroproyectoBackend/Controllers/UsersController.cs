@@ -54,7 +54,9 @@ namespace MicroproyectoBackend.ApiRest.Controllers
         [Route("user/{userId}")]
         public async Task<ActionResult> DeleteUser([FromRoute] int userId)
         {
-            throw new NotImplementedException();
+            var command = new DeleteUserCommand { Id = userId };
+            await _mediator.Send(command);
+            return Ok();
         }
     }
 }
