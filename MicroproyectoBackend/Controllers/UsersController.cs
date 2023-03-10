@@ -2,12 +2,16 @@ using MediatR;
 using MicroproyectoBackend.Aplication.Commands;
 using MicroproyectoBackend.Infraestructure.Entities;
 using MicroproyectoBackend.Infraestructure.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroproyectoBackend.ApiRest.Controllers
 {
-    [ApiController]
+    
+    
     [Route("api/users")]
+    [ApiController]
+    [Authorize (Policy = "AdminOnly")]
     public class UsersController : ControllerBase
     {       
 
