@@ -11,6 +11,12 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
     public class AddUserCommandHandler : IRequestHandler<AddUserCommand, Unit>
     {
         private UsersDbContext _userDbContext;
+
+        public AddUserCommandHandler(UsersDbContext userDbContext)
+        {
+            _userDbContext = userDbContext;
+        }
+
         public async Task<Unit> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
             var user = new Users()
@@ -18,6 +24,7 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
                 Username = request.Username,
                 Pass = request.Pass,
                 Fullname = request.Fullname,
+                Email = request.Email,
                 StartDate= request.StartDate,
                 EndDate= request.EndDate,
                 IsAdmin= request.IsAdmin,

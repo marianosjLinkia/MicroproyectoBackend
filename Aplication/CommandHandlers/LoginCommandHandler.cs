@@ -17,15 +17,20 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
     public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
     {
         private UsersDbContext _userDbContext;
+
+        public LoginCommandHandler(UsersDbContext userDbContext)
+        {
+            _userDbContext = userDbContext;
+        }
         public async Task<LoginResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = await _userDbContext.Users.FirstAsync(x => x.Username == request.UserName);
-         
 
-            if (user == null || user.Pass != request.Password )
+
+            if (user == null || user.Pass != request.Password)
             {
                 return null;
-            }            
+            }
 
             var claims = GetClaims(user.IsAdmin);
 
@@ -33,11 +38,11 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
 
             var userTpe = user.IsAdmin ? (int)UserType.Admin : (int)UserType.Standard;
             return new LoginResponse() { Token = token, UserType = userTpe };
-        }        
+        }
 
         private List<Claim> GetClaims(bool isAdmin)
         {
-            var claims =new List<Claim>();
+            var claims = new List<Claim>();
             if (isAdmin)
             {
                 claims.Add(new Claim(ClaimTypes.Role, "admin"));
@@ -63,5 +68,5 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
 
             return token;
         }
-    }    
+    }
 }

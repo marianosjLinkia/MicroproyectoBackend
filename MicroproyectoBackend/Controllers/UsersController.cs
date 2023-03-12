@@ -28,15 +28,18 @@ namespace MicroproyectoBackend.ApiRest.Controllers
         }
 
         [HttpPost]
-        [Route("user/addUser")]
+        [Route("addUser")]
         public async Task<ActionResult> AddUser([FromBody] AddUserRequest request)
         {            
             var command = new AddUserCommand()
             {               
                 Username = request.Username,
                 Fullname = request.Fullname,
+                Email= request.Email,
+                StartDate= request.StartDate,
+                EndDate = request.EndDate,
                 Pass = request.Pass,        
-                IsAdmin = request.UserType == UserType.Admin ? true : false
+                IsAdmin = request.IsAdmin
             };
 
             var response = await _mediator.Send(command);
@@ -78,8 +81,9 @@ namespace MicroproyectoBackend.ApiRest.Controllers
             {
                 Username = request.Username,
                 Fullname = request.Fullname,
+                Email = request.Email,
                 Pass = request.Pass,
-                IsAdmin = request.UserType == UserType.Admin ? true : false
+                IsAdmin = request.IsAdmin
             };
             command.Id = userId;
 
