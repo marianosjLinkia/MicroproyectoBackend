@@ -72,7 +72,7 @@ namespace MicroproyectoBackend.ApiRest.Controllers
 
         [HttpPut]
         [Route("user/{userId}")]
-        public async Task<ActionResult> DeleteUser([FromRoute] int userId, [FromBody] EditUserRequest request)
+        public async Task<ActionResult> UpdateUser([FromRoute] int userId, [FromBody] EditUserRequest request)
         {
             var command = new EditUserCommand()
             {
