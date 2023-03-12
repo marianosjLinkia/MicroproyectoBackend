@@ -6,7 +6,7 @@ namespace MicroproyectoBackend.Aplication.Commands
 {
     public class LoginCommand : IRequest<LoginResponse>
     {
-        public string Email;
+        public string UserName;
         public string Password;
     }
 }
