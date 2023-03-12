@@ -14,7 +14,7 @@ using MicroproyectoBackend.ApiRest.Models.AddUser;
 using MicroproyectoBackend.ApiRest.Models.EditUser;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -33,6 +33,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("admin"));
+});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("microproyectobackend.azurewebsites.net");
+                      });
 });
 
 
@@ -86,5 +94,5 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 app.MapControllers();
-
+app.UseCors(MyAllowSpecificOrigins);
 app.Run();

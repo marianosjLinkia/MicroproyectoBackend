@@ -10,6 +10,8 @@ namespace MicroproyectoBackend.Aplication.Commands
         public string Fullname;
         public string Pass;
         public bool IsAdmin;
+        public string Email;
+
 
     }
 }
