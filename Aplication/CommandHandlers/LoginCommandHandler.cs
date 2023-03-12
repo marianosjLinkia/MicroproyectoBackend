@@ -1,5 +1,6 @@
 ﻿using Azure;
 using MediatR;
+using MicroproyectoBackend.ApiRest.Request;
 using MicroproyectoBackend.Aplication.Commands;
 using MicroproyectoBackend.Infraestructure.Database;
 using MicroproyectoBackend.Infraestructure.Entities;
@@ -13,13 +14,13 @@ using System.Text;
 
 namespace MicroproyectoBackend.Aplication.CommandHandlers
 {
-    public class LoginCommandHandler : IRequestHandler<LoginCommand, string>
+    public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
     {
         private UsersDbContext _userDbContext;
-        public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<LoginResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = await _userDbContext.User.FirstAsync(x => x.Email == request.Email);
-            
+
             if (user == null || user.Password != request.Password)
             {
                 return null;
@@ -29,7 +30,8 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
 
             var token = GetToken(claims);
 
-            return token;
+
+            return new LoginResponse() { Token = token, UserType = (int)user.UserType };
         }        
 
         private List<Claim> GetClaims(UserType userType)

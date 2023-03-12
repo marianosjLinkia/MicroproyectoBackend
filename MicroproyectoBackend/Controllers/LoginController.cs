@@ -30,14 +30,14 @@ namespace MicroproyectoBackend.ApiRest.Controllers
                 Password = loginRequest.Password
             };
 
-            var tokenString = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            if (tokenString == null)
+            if (response == null || response.Token == null || response.Token == "")
             {
                 return new UnauthorizedResult();
             }
 
-            return  Ok(new { Token = tokenString });
+            return  Ok(response);
         }
     }
 }
