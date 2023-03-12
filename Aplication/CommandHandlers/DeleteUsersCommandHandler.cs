@@ -23,6 +23,7 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
             }
             
             _userDbContext.Users.Remove(user);
+            _userDbContext.SaveChanges();
 
             return Unit.Value;
         }

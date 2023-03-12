@@ -24,10 +24,7 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
                 Username = request.Username,
                 Pass = request.Pass,
                 Fullname = request.Fullname,
-                Email = request.Email,
-                StartDate= request.StartDate,
-                EndDate= request.EndDate,
-                IsAdmin= request.IsAdmin,
+                IsAdmin = request.IsAdmin == UserType.Admin,
             };
 
             _userDbContext.Users.Add(user);

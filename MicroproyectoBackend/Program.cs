@@ -39,7 +39,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("microproyectobackend.azurewebsites.net");
+                          builder.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
                       });
 });
 
@@ -72,6 +74,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<UsersDbContext>(opciones =>
          opciones.UseSqlServer(connectionString));
 builder.Services.AddMediatR(typeof(GetUserCommand));
+builder.Services.AddMediatR(typeof(EditUserCommand));
 builder.Services.AddMediatR(typeof(GetUsersCommand));
 builder.Services.AddMediatR(typeof(DeleteUserCommand));
 builder.Services.AddMediatR(typeof(AddUserCommand));
@@ -86,6 +89,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -94,5 +98,4 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 app.MapControllers();
-app.UseCors(MyAllowSpecificOrigins);
 app.Run();

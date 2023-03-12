@@ -35,9 +35,6 @@ namespace MicroproyectoBackend.ApiRest.Controllers
             {               
                 Username = request.Username,
                 Fullname = request.Fullname,
-                Email= request.Email,
-                StartDate= request.StartDate,
-                EndDate = request.EndDate,
                 Pass = request.Pass,        
                 IsAdmin = request.IsAdmin
             };
@@ -81,7 +78,6 @@ namespace MicroproyectoBackend.ApiRest.Controllers
             {
                 Username = request.Username,
                 Fullname = request.Fullname,
-                Email = request.Email,
                 Pass = request.Pass,
                 IsAdmin = request.IsAdmin
             };
