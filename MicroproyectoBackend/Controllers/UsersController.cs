@@ -1,4 +1,7 @@
+using Azure.Core;
 using MediatR;
+using MicroproyectoBackend.ApiRest.Models.AddUser;
+using MicroproyectoBackend.ApiRest.Models.EditUser;
 using MicroproyectoBackend.Aplication.Commands;
 using MicroproyectoBackend.Infraestructure.Entities;
 using MicroproyectoBackend.Infraestructure.Enums;
@@ -21,13 +24,21 @@ namespace MicroproyectoBackend.ApiRest.Controllers
         public UsersController(ILogger<UsersController> logger, IMediator mediator)
         {
             _logger = logger;
-            _mediator = mediator;
+            _mediator = mediator;            
         }
 
         [HttpPost]
         [Route("user/addUser")]
-        public async Task<ActionResult> AddUser([FromBody] AddUserCommand command)
-        {
+        public async Task<ActionResult> AddUser([FromBody] AddUserRequest request)
+        {            
+            var command = new AddUserCommand()
+            {               
+                Username = request.Username,
+                Fullname = request.Fullname,
+                Pass = request.Pass,        
+                IsAdmin = request.UserType == UserType.Admin ? true : false
+            };
+
             var response = await _mediator.Send(command);
             return Ok(response);
         }
@@ -56,6 +67,24 @@ namespace MicroproyectoBackend.ApiRest.Controllers
         {
             var command = new DeleteUserCommand { Id = userId };
             await _mediator.Send(command);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("user/{userId}")]
+        public async Task<ActionResult> DeleteUser([FromRoute] int userId, [FromBody] EditUserRequest request)
+        {
+            var command = new EditUserCommand()
+            {
+                Username = request.Username,
+                Fullname = request.Fullname,
+                Pass = request.Pass,
+                IsAdmin = request.UserType == UserType.Admin ? true : false
+            };
+            command.Id = userId;
+
+            await _mediator.Send(command);
+
             return Ok();
         }
     }

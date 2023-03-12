@@ -22,11 +22,11 @@ namespace MicroproyectoBackend.ApiRest.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<List<User>>> Login([FromBody] LoginRequest loginRequest)
+        public async Task<ActionResult<List<Users>>> Login([FromBody] LoginRequest loginRequest)
         {            
             var command = new LoginCommand()
-            { 
-                Email = loginRequest.Email,
+            {
+                UserName = loginRequest.UserName,
                 Password = loginRequest.Password
             };
 

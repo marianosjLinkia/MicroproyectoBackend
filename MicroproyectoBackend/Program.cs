@@ -10,7 +10,10 @@ using System.Reflection;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using System.Text;
+using MicroproyectoBackend.ApiRest.Models.AddUser;
+using MicroproyectoBackend.ApiRest.Models.EditUser;
 
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
@@ -64,8 +67,7 @@ builder.Services.AddMediatR(typeof(GetUserCommand));
 builder.Services.AddMediatR(typeof(GetUsersCommand));
 builder.Services.AddMediatR(typeof(DeleteUserCommand));
 builder.Services.AddMediatR(typeof(AddUserCommand));
-
-        var app = builder.Build();
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -73,7 +75,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-        app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseRouting();
 app.UseAuthentication();
@@ -85,6 +87,4 @@ app.UseEndpoints(endpoints =>
 });
 app.MapControllers();
 
-        app.Run();
-    }
-}
+app.Run();
