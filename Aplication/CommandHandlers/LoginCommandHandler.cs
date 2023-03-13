@@ -32,18 +32,17 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
                 return null;
             }
 
-            var claims = GetClaims(user.IsAdmin);
+            var claims = GetClaims(user.UserType);
 
             var token = GetToken(claims);
-
-            var userTpe = user.IsAdmin ? (int)UserType.Admin : (int)UserType.Standard;
-            return new LoginResponse() { Token = token, UserType = userTpe };
+   
+            return new LoginResponse() { Token = token, UserType = (int)user.UserType };
         }
 
-        private List<Claim> GetClaims(bool isAdmin)
+        private List<Claim> GetClaims(int userType)
         {
             var claims = new List<Claim>();
-            if (isAdmin)
+            if (userType == (int)UserType.Admin)
             {
                 claims.Add(new Claim(ClaimTypes.Role, "admin"));
             }

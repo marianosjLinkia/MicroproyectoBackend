@@ -8,6 +8,6 @@ namespace MicroproyectoBackend.Aplication.Commands
         public string Fullname;
         public string Username;
         public string Pass;
-        public UserType IsAdmin;
+        public UserType UserType;
     } 
 }

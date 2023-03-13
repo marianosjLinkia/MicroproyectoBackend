@@ -7,7 +7,7 @@ namespace MicroproyectoBackend.ApiRest.Models.EditUser
         public string Username { get; set; }
         public string Fullname { get; set; }
         public string Pass { get; set; }
-        public bool IsAdmin { get; set; }
+        public UserType UserType { get; set; }
 
     }
 }

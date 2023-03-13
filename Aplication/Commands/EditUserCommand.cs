@@ -9,7 +9,7 @@ namespace MicroproyectoBackend.Aplication.Commands
         public string Username;
         public string Fullname;
         public string Pass;
-        public bool IsAdmin;
+        public UserType UserType;
         public string Email;
 
 

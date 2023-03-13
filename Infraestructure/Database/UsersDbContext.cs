@@ -1,4 +1,6 @@
-﻿using MicroproyectoBackend.Infraestructure.Entities;
+﻿using Azure.Core;
+using MicroproyectoBackend.Infraestructure.Entities;
+using MicroproyectoBackend.Infraestructure.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroproyectoBackend.Infraestructure.Database
@@ -9,6 +11,8 @@ namespace MicroproyectoBackend.Infraestructure.Database
         {
            
         }
-        public DbSet<Users> Users { get; set; }
+
+
+        public DbSet<Users> Users { get; set; }        
     }
 }

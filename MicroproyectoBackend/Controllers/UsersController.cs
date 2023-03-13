@@ -35,8 +35,8 @@ namespace MicroproyectoBackend.ApiRest.Controllers
             {               
                 Username = request.Username,
                 Fullname = request.Fullname,
-                Pass = request.Pass,        
-                IsAdmin = request.IsAdmin
+                Pass = request.Pass,
+                UserType = request.UserType
             };
 
             var response = await _mediator.Send(command);
@@ -79,7 +79,7 @@ namespace MicroproyectoBackend.ApiRest.Controllers
                 Username = request.Username,
                 Fullname = request.Fullname,
                 Pass = request.Pass,
-                IsAdmin = request.IsAdmin
+                UserType = request.UserType
             };
             command.Id = userId;
 

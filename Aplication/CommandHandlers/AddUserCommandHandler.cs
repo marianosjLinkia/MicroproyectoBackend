@@ -24,7 +24,7 @@ namespace MicroproyectoBackend.Aplication.CommandHandlers
                 Username = request.Username,
                 Pass = request.Pass,
                 Fullname = request.Fullname,
-                IsAdmin = request.IsAdmin == UserType.Admin,
+                UserType = (int)request.UserType,
             };
 
             _userDbContext.Users.Add(user);
