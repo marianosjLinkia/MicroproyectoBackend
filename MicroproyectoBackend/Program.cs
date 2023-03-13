@@ -55,7 +55,7 @@ builder.Services.AddSwaggerGen(c =>
     var securityScheme = new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        Description = "Ingrese el token de autorización Bearer en este campo",
+        Description = "Ingrese el token de autorizaciÃ³n Bearer en este campo",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
         Scheme = "bearer",
@@ -80,11 +80,10 @@ builder.Services.AddMediatR(typeof(DeleteUserCommand));
 builder.Services.AddMediatR(typeof(AddUserCommand));
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.UseHttpsRedirection();
 
